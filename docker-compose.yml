@@ -1,0 +1,12 @@
+version: '3'
+services:
+  ppd_complaints_api:
+    build: .
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./api:/opt/program/api
+      - ./serve_local.py:/opt/program/serve_local.py
+    environment:
+      - PYTHONBUFFERED=0
+    command: python3 /opt/program/serve_local.py
